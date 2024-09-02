@@ -54,7 +54,7 @@ const Header = () => {
   return (
     <>
       {isTitleVisible && (
-        <header className="flex items-center flex-wrap justify-between w-full h-16 fixed bg-[#333333]">
+        <header className="flex z-20 items-center flex-wrap justify-between w-full h-16 fixed bg-[#333333]">
           <div className="flex items-center justify-center gap-5 px-5">
             <img
               className="w-32 cursor-pointer"

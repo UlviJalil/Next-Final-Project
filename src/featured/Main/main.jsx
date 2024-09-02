@@ -7,6 +7,7 @@ import { FaQuestionCircle } from "react-icons/fa";
 
 
 const Main = () => {
+  
   return (
     <>
       <main className="flex w-full bg-[#a8f2eb] h-[500px] mt-8 flex-wrap">

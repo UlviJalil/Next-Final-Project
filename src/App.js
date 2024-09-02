@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./featured/Header/header.jsx"
 import Main from "./featured/Main/main.jsx"
 import CardImageMolekul from "./molekuls/CardImageMolekul.jsx";
+import SecondCardImageMolekul from "./molekuls/SecondCardImageMolekul.jsx";
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Main />
       <CardImageMolekul />
+      <SecondCardImageMolekul />
 
     </div>
   );
