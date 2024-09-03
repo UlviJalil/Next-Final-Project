@@ -2,7 +2,8 @@ import React from "react";
 import Header from "./featured/Header/header.jsx"
 import Main from "./featured/Main/main.jsx"
 import CardImageMolekul from "./molekuls/CardImageMolekul.jsx";
-import SecondCardImageMolekul from "./molekuls/SecondCardImageMolekul.jsx";
+import Product from "./components/Product.jsx";
+import BigSale from "./components/BigSale.jsx"
 
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
       <Header />
       <Main />
       <CardImageMolekul />
-      <SecondCardImageMolekul />
+      <Product />
+      <BigSale />
 
     </div>
   );
