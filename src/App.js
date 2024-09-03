@@ -4,6 +4,7 @@ import Main from "./featured/Main/main.jsx"
 import CardImageMolekul from "./molekuls/CardImageMolekul.jsx";
 import Product from "./components/Product.jsx";
 import BigSale from "./components/BigSale.jsx"
+import Footer from "./featured/Footer/footer.jsx"
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <CardImageMolekul />
       <Product />
       <BigSale />
+      <Footer />
 
     </div>
   );

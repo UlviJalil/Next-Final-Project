@@ -27,7 +27,7 @@ const products = [
 const ProductGrid = () => {
     return (
         <div>
-            <div className="bg-gray-100 w-full flex flex-wrap justify-center items-center min-h-screen pt-10 mt-20">
+            <div className=" w-full flex flex-wrap justify-center items-center min-h-screen pt-10 mt-20 ">
                 <div className="">
                     <h2 className="text-center text-3xl font-normal mb-8">Featured Products</h2>
                     <div className="flex items-center justify-center gap-6">
