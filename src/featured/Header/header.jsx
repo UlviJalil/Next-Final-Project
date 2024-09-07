@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { FaDesktop } from "react-icons/fa";
@@ -15,34 +16,22 @@ import { MdAccountCircle } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoMoonOutline } from "react-icons/io5";
-
-
-
-
-
-
-
-
-
-
+import { useTranslation } from 'react-i18next'; // i18n hook
 
 const Header = () => {
-  const [isTitleVisible, setIsTitleVisible] = useState(true); // State for title visibility
+  const { t, i18n } = useTranslation(); // useTranslation hook for i18n
+  const [isTitleVisible, setIsTitleVisible] = useState(true);
   const [showShopperDiv, setShowShopperDiv] = useState(false);
   const [showHomeDiv, setShowHomeDiv] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false); // State for dark mode
   const [showAboutDiv, setShowAboutDiv] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const handleCloseTitle = () => setIsTitleVisible(false); // Function to handle closing the title
+  const handleCloseTitle = () => setIsTitleVisible(false);
   const handleShopperClick = () => setShowShopperDiv((prev) => !prev);
   const handleHomeClick = () => setShowHomeDiv((prev) => !prev);
   const handleAboutClick = () => setShowAboutDiv((prev) => !prev);
-
-
-  // Function to toggle dark mode
   const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
-  // Effect to apply or remove the dark mode class from body
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add('dark-mode');
@@ -50,6 +39,11 @@ const Header = () => {
       document.body.classList.remove('dark-mode');
     }
   }, [isDarkMode]);
+
+  // Function to handle language change
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <>
@@ -65,7 +59,7 @@ const Header = () => {
               className="flex items-center justify-center cursor-pointer font-medium text-lg w-40 h-16 outline-none bg-[#222222] text-[#797979]"
               onClick={handleShopperClick}
             >
-              + SHOPPERS
+              + {t('shoppers')}
             </div>
           </div>
 
@@ -95,7 +89,7 @@ const Header = () => {
       {showShopperDiv && (
         <div className=" w-full h-48 bg-black flex items-center justify-center">
           <p className="flex items-center justify-center text-4xl text-[#fff] font-medium">
-            ENJOY YOUR SHOPPING <GiGlassCelebration className="text-5xl" />
+            {t('enjoy_shopping')} <GiGlassCelebration className="text-5xl" />
           </p>
           <div className="flex gap-4 items-center px-4">
             <GiRunningShoe className="text-5xl text-green-600" />
@@ -108,10 +102,10 @@ const Header = () => {
       <navbar className="flex w-full flex-wrap items-center justify-around h-48 pt-14">
         <div className="flex items-center gap-5 ">
           <IoIosSearch />
-          <input className="outline-none" type="text" placeholder="Search" />
+          <input className="outline-none" type="text" placeholder={t('search_placeholder')} />
         </div>
         <button className="w-40 h-12 border border-black text-xl hover:text-[#fff] hover:bg-[#222222]">
-          S H O P P E R S
+          {t('shoppers')}
         </button>
 
         <div className="flex items-center gap-4 text-xl text-[#444444]">
@@ -124,27 +118,37 @@ const Header = () => {
           <button className="flex" onClick={toggleDarkMode}>
             <IoMoonOutline className="text-2xl cursor-pointer hover:text-[#000]" />
           </button>
+          {/* Language Switcher */}
+          <button onClick={() => changeLanguage('az')}>
+            <img className='w-[22px] h-[22px]' src="https://w7.pngwing.com/pngs/478/548/png-transparent-flag-of-azerbaijan-azerbaijanis-flag-of-azerbaijan-flag-sphere-republic-thumbnail.png" alt="aze" />
+          </button>
+          <button onClick={() => changeLanguage('en')}>
+            <img className='w-[22px] h-[22px]' src="https://cdn2.iconfinder.com/data/icons/world-flags-1-1/100/Britain-512.png" alt="eng" />
+          </button>
+          <button onClick={() => changeLanguage('ru')}>
+            <img className='w-[25px] h-[25px]' src="https://media.istockphoto.com/id/542202100/photo/russian-flag-button-flag-of-russia-badge-3d-illustration.jpg?s=612x612&w=0&k=20&c=4F-3PGlyJWQl9yL_58-iJn6mRjez_XwdpHO9csQv8wM=" alt="eng" />
+          </button>
         </div>
       </navbar>
 
       <div className="flex justify-center items-center w-full gap-8 text-sm">
         <a className="flex items-center gap-2 text-[#7971ea] cursor-pointer" href="#" onClick={handleHomeClick}>
-          HOME <IoIosArrowDown />
+          {t('home')} <IoIosArrowDown />
         </a>
         <a className="flex items-center gap-2 hover:text-[#7971ea]" href="#" onClick={handleAboutClick}>
-          ABOUT <IoIosArrowDown />
+          {t('about')} <IoIosArrowDown />
         </a>
         <a className="hover:text-[#7971ea]" href="#">
-          SHOP
+          {t('shop')}
         </a>
         <a className="hover:text-[#7971ea]" href="#">
-          CATALOGUE
+          {t('catalogue')}
         </a>
         <a className="hover:text-[#7971ea]" href="#">
-          NEW ARRIVALS
+          {t('new_arrivals')}
         </a>
         <a className="hover:text-[#7971ea]" href="#">
-          CONTACT
+          {t('contact')}
         </a>
       </div>
 

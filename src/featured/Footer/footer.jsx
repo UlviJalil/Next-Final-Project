@@ -72,7 +72,7 @@ const Footer = () => {
         <div className=" flex w-full flex-col mt-8">
           <h3 className="text-lg font-semibold mb-4">Subscribe</h3>
           <div className="flex w-full ">
-            <input type="email" placeholder="Email" className="w-52 p-2  rounded-l" />
+            <input type="email" placeholder="Email" className="w-52 p-2 outline-none  rounded-l" />
             <button className="bg-[#7971ea] text-white p-2 rounded-r">SEND</button>
           </div>
         </div>
